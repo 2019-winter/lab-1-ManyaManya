@@ -54,7 +54,8 @@ print(a)
 ## Exercise 2
 
 ```python
-b = np.ones((6,4), dtype=int) + 2*np.eye(6,4, dtype=int)
+b = np.ones((6,4), dtype=int)
+b[range(4), range(4)] = 3
 print(b)
 ```
 
@@ -96,11 +97,13 @@ def randArr(low, high, size):
     print("min: ", arr.min())
     print("max: ", arr.max())
     print("sum: ", arr.sum())
+    print("sum: ", arr.sum(axis=1))
+    print("sum: ", arr.sum(axis=0))
     print("mean: ", np.mean(arr))
 
-randArr(0, 22, 5)
-randArr(0, 22, 5)
-randArr(0, 22, 5)
+randArr(0, 22, (5,5))
+randArr(0, 22, (5,5))
+randArr(0, 22, (5,5))
 
     
 ```
@@ -148,7 +151,8 @@ print(a)
 Repeat exercise A.2 using a DataFrame instead.
 
 ```python
-b = pd.DataFrame(np.ones((6,4), dtype=int) + 2*np.eye(6,4), dtype=int)
+b = pd.DataFrame(np.ones((6,4), dtype=int))
+b.iloc[range(4), range(4)] = 3
 print(b)
 ```
 
